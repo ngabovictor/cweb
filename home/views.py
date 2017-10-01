@@ -101,18 +101,18 @@ def order_now(request):
 
 def thanks(request):
 
-	contact = order.objects.get(mailed='N')
+	# contact = order.objects.get(mailed='N')
 	
-	email = contact.email
+	# email = contact.email
 	
-	send_mail(
-	    'Your order has been comfirmed - Core Labs+ Ltd.',
-	    'Thank you for requesting the service(s) at Core Labs+ Ltd, we are excited to start working with you.\n\nPlease, do not reply this email as it is auto generated. Instead, do not hesitate to contact us on support@corelabsplus.com.\nWe will be contacting you soon regarding your order.\nIf you wish, you may send supporting documents regarding your request on the given email address.\n\nKind regards,\n\n\nCore Labs+ Ltd Team.\nwww.corelabsplus.com\nOur Passion, Your Potential.',
-	    'coredev2017@gmail.com',
-	    [email],
-	    fail_silently = False,
-	)
-	order.objects.filter(mailed='N').update(mailed='Y')
+	# send_mail(
+	#     'Your order has been comfirmed - Core Labs+ Ltd.',
+	#     'Thank you for requesting the service(s) at Core Labs+ Ltd, we are excited to start working with you.\n\nPlease, do not reply this email as it is auto generated. Instead, do not hesitate to contact us on support@corelabsplus.com.\nWe will be contacting you soon regarding your order.\nIf you wish, you may send supporting documents regarding your request on the given email address.\n\nKind regards,\n\n\nCore Labs+ Ltd Team.\nwww.corelabsplus.com\nOur Passion, Your Potential.',
+	#     'coredev2017@gmail.com',
+	#     [email],
+	#     fail_silently = False,
+	# )
+	# order.objects.filter(mailed='N').update(mailed='Y')
 
 	# send_mail(
 	#     'New order from %s'%email,
