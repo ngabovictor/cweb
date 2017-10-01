@@ -43,16 +43,16 @@ def send_message(request):
 			date = date,
 			)
 
-		message_body = "Sent by " + str(name) + "," + " " + str(email) + "." + "\n\n" + str(message)
+		# message_body = "Sent by " + str(name) + "," + " " + str(email) + "." + "\n\n" + str(message)
 
 
-		send_mail(
-		    'New message from web',
-			message_body,
-		    'coredev2017@gmail.com',
-		    ['contact@corelabsplus.com'],
-		    fail_silently=False,
-		)
+		# send_mail(
+		#     'New message from web',
+		# 	message_body,
+		#     'coredev2017@gmail.com',
+		#     ['contact@corelabsplus.com'],
+		#     fail_silently=False,
+		# )
 	# app = Celery('tasks', backend='amqp', broker='amqp://')
 	# subject = 'Thanks'
 	# message = 'body'
@@ -88,14 +88,14 @@ def order_now(request):
 			# supporting_doc = supporting_doc,
 			mailed= 'N',
 			)
-	order_body = "Ordered by " + str(name) + "," + "\n" + tel + "," + " " + str(email) + "." + "\n\n" + str(description)
-	send_mail(
-	    'New order from web',
-	    order_body,
-	    'coredev2017@gmail.com',
-	    ['orders@corelabsplus.com'],
-	    fail_silently = False,
-	)
+	# order_body = "Ordered by " + str(name) + "," + "\n" + tel + "," + " " + str(email) + "." + "\n\n" + str(description)
+	# send_mail(
+	#     'New order from web',
+	#     order_body,
+	#     'coredev2017@gmail.com',
+	#     ['orders@corelabsplus.com'],
+	#     fail_silently = False,
+	# )
 
 	return HttpResponseRedirect('thanks')
 
