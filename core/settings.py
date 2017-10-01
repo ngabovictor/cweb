@@ -170,7 +170,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+S3_USE_SIGV4 = True
 #Storage on S3 settings are stored as os.environs to keep settings.py clean 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 if not DEBUG:
    AWS_STORAGE_BUCKET_NAME = os.environ['cneweb']
    AWS_ACCESS_KEY_ID = os.environ['AKIAIREUGRU2A57Q5UAA']
