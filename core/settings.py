@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'control',
+    'storages',
     # 'djcelery',
     # 'kombu.transport.django',
     # 'djcelery_email',
@@ -168,3 +169,12 @@ STATIC_ROOT= os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+#Storage on S3 settings are stored as os.environs to keep settings.py clean 
+if not DEBUG:
+   AWS_STORAGE_BUCKET_NAME = os.environ['cneweb']
+   AWS_ACCESS_KEY_ID = os.environ['AKIAIREUGRU2A57Q5UAA']
+   AWS_SECRET_ACCESS_KEY = os.environ['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']
+   STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+   S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+   STATIC_URL = S3_URL
