@@ -175,7 +175,9 @@ S3_USE_SIGV4 = True
 #Storage on S3 settings are stored as os.environs to keep settings.py clean 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_DIRS = 'coreweb/static'
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
 if not DEBUG:
    AWS_STORAGE_BUCKET_NAME = 'corewebapp'
    S3_REGION_NAME = 'US East (N. Virginia)'
