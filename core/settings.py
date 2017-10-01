@@ -175,6 +175,7 @@ S3_USE_SIGV4 = True
 #Storage on S3 settings are stored as os.environs to keep settings.py clean 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'coreweb/static'),]
 if not DEBUG:
    AWS_STORAGE_BUCKET_NAME = 'corewebapp'
    AWS_ACCESS_KEY_ID = 'AKIAJT2MOLQOQG42XBMQ'
@@ -184,9 +185,6 @@ if not DEBUG:
     'CacheControl': 'max-age=86400',
     }
 
-    STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'coreweb/static'),
-    ]
    # STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
    AWS_LOCATION = 'static'
    S3_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
