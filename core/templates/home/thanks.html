@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}
+<title>Thank you for requesting services| Core Labs+</title>
+{% endblock %}
+
+
+{% block body %}
+<style>
+		body
+		{
+			background-color: #344557;
+		}
+	</style>
+<br><br>
+<center><h6 class="core-text">Thank you for requesting service(s)</h6></center>
+<p align="center" class="white">We are happy to start working with you.</p>
+<br>
+<p align="center" class="core-text"><i>Our Passion, Your potential.</i></p>
+<br>
+<center><img class="img-fluid" src="{% static 'media/spinners.gif' %}" alt=""></center>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+	// Your delay in milliseconds
+	var delay = 5000; 
+	setTimeout(function(){ window.location = '/'; }, delay);
+</script>
+
+{% endblock %}
+	
+
+	

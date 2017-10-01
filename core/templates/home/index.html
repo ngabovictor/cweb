@@ -1,0 +1,587 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}
+<title>Core Labs+| Welcome</title>
+{% endblock %}
+
+
+{% block body %}
+
+
+	<!-- MAIN BACKGROUND -->
+
+	<div>
+		<img class="bcg img-fluid hidden-xs" src="{% static 'media/bcg.jpg' %}">
+	</div>
+
+	<!-- END OF MAIN BACKGROUND -->
+
+	<!-- HOME CAROUSEL -->
+
+	<div class="car section" id="home">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		  <div class="carousel-inner" role="listbox">
+
+		  {% for carousel in carousels %}
+
+		    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+
+		      <img class="home-carou img-fluid" src="{{carousel.image.url}}" alt="First slide">
+
+		      <div class="carousel-caption d-md-block wow {{carousel.animation}}" data-wow-delay="0.8s">
+			    <h3>{{carousel.title}}</h3>
+			    <p class="white">{{carousel.caption}}</p>
+			  </div>
+		    </div>
+
+		   {% endfor %}
+
+		  <a class="carousel-control-prev home-ccontrol" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next home-ccontrol" href="#carouselExampleIndicators" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+	</div>
+	
+
+	<!-- END OF HOME CAROUSEL -->
+
+	<!-- NAVBAR -->
+
+
+	<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
+	  <button class="navbar-toggler navbar-toggler-right navbar-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="red">
+	    	<i class="navbar-toggler-icon"></i>
+	    </span>
+	  </button>
+	  <a class="navbar-brand" href="#">
+	  	<img class="brand-logo" src="{% static 'media/logo.png' %}" alt="">
+	  </a>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item">
+	        <a class="nav-link" href="#home"><span><i class="fa fa-2x fa-home"></i></span> <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#services">SERVICES</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#portfolio">PORTFOLIO</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#pricing">PRICING</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#about">ABOUT US</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#contact">CONTACT</a>
+	      </li>
+	    </ul>
+
+	  </div>
+	</nav>
+
+	<!-- END OF NAVBAR -->
+
+	
+
+	<!-- SERVICES -->
+
+
+	<div class="section pos wow fadeInUp" id="services">
+		<br><br>
+		<center><h2 class="sect-head">Services</h2></center>
+		<br>
+		<p align="center" class="not">At Core Labs, We offer a variety of services including:</p>
+		<br><br><br><br>
+		<div class="row not">
+
+		{% for service in services %}
+
+			<div class="cold col-md-6 wow fadeInDown">
+				<center>
+					<img class="ico" src="{{service.image.url}}" alt="{{service.name}}">
+				</center>
+				<br>
+
+				<h6 align="center" class="itm-head">{{service.name}}</h6>
+				<br>
+
+				<p align="center">{{service.description |safe}}</p>
+			</div>
+		{% endfor %}
+
+		<br><br>
+
+		</div>
+	</div>
+
+	<!-- END OF SERVICES -->
+
+
+	<!-- PORTFOLIO -->
+
+	<div class="section portfolio" id="portfolio">
+		<br><br>
+		<center><h2 class="sect-head white wow fadeInDown">Portfolio</h2></center>
+		<br><br>
+		<div class="row not">
+			<p align="center" class="white wow fadeInUp" style="margin: 0 auto;">We never tell, We let our products show you everything!</p>
+
+			<br><br><br><br>
+
+			<div class="portfolio-items p-nav">
+				<ul class="nava col-sm-12">
+					<li class="clickable nav-item white" data-filter="all"><a class="nav-link" data-filter="all">All</a></li>
+					<li class="clickable nav-item white" data-filter=".Web"><a class="nav-link">Web</a></li>
+					<li class="clickable nav-item white" data-filter=".Design"><a class="nav-link">Designs</a></li>
+					<li class="clickable nav-item white" data-filter=".App"><a class="nav-link">Apps</a></li>
+					<li class="clickable nav-item white" data-filter=".Others"><a class="nav-link">Others</a></li>
+				</ul>
+			</div>
+
+			<br><br>
+
+
+			<div class="wow fadeInDown projects">
+
+			{% for item in portfolio %}
+
+				<figure class="mix portfolio-item {{item.category}}">
+                    <img class="img-fluid port-img" src="{{item.image.url}}" alt="{{item.title}}">
+                    <a href="{{item.image.url}}" title="{{item.caption}} - {{item.title}}" rel="portfolio" class="fancybox"><span class="plus"></span></a>
+                    <figcaption class="mask">
+                        <h5>{{item.caption}}</h5>
+                        <span>{{item.title}}</span>
+                    </figcaption>
+                </figure>
+
+            {% endfor %}
+
+			</div>
+
+
+		</div>
+
+			<br>
+			<br>
+			<br>
+	</div>
+
+	<!-- END OF PORTFOLIO -->
+
+
+	<!-- our pricing -->
+
+	<div class="pricing section" id="pricing">
+		<br><br>
+		<center><h3 class="sect-head wow fadeInDown">Our Pricing</h3></center>
+
+		<br>
+		<p align="center" class="white not wow fadeInUp">			
+			We understand that it's not about the money, it's all about the qaulity. We are excited to serve you with the products of higher standards, and our pricing will never be a "deal breaker". Please, find our pricing below. Note that any service not listed below, its price is variable depending on customer's needs.
+		</p>
+
+		   <!-- PANELS -->
+
+	    <br><br>
+
+
+
+	    <div class="accordion">
+
+	    {% for service in toPricings %}
+
+			<h6 class="accordion-toggle"><span class="pan-head">{{service.title}}</span></h6>
+			<div class="accordion-content">
+				<div class="row for-order">
+
+				{% for item in prices %}
+
+				{% if item.category|stringformat:"s" == service.title|stringformat:"s" %}
+
+					<div class="col-md-4 order-itm">
+						<center>
+						<br>
+						<img src="{{item.image.url}}"  height="80" width="80" alt="{{item.title}}">
+						<br>
+						<br>
+						<h5>{{item.title}}</h5></center>
+
+						<br>
+
+						<p>{{item.description |safe}}</p>
+						<br>
+						<p align="center">Starting at {{item.price}}Rwf</p>
+
+						<br>
+
+						<center><button class="btn btn-danger order-btn" data-toggle="modal" data-target="#myModal">Order</button></center>
+						<br><br>
+					</div>
+
+				{% endif %}
+
+				{% endfor %}
+					
+					
+				</div>
+
+				<br>
+			</div>
+
+		{% endfor %}
+
+			<br>
+
+		</div>
+
+
+	    <!-- END OF PANELS -->
+	</div>
+
+		<!-- ORDER MODAL -->
+
+		<!-- Button trigger modal -->
+
+		<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+		  Launch demo modal
+		</button> -->
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title white" id="exampleModalLabel">Request services now</h5>
+		        <button type="button" class="close white modal-close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+
+		        <!-- ORDER DETAILS -->
+		        <form method="POST" action="place_order" class="modal-forms service-form" enctype="multipart/form-data"> {% csrf_token %}
+					<div class="form-group">
+						<label for="name">Full Names</label>
+
+						<input type="text" class="form-control form-control-sm name" name="name" id="name" aria-describedby="emailHelp" placeholder="Enter your name" required>
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" class="form-control form-control-sm email" name="email" id="email" placeholder="Enter email" required>
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+					</div>
+
+					<div class="form-group">
+						<label for="phone">Phone</label>
+						<input type="tel" class="form-control form-control-sm phone" name="phone" id="phone" placeholder="Enter phone number" maxlength="12" required>
+						<small id="phoneHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
+					</div>
+
+					<div class="form-group">
+						<label for="address">Please enter your address</label>
+						<input type="text" class="form-control form-control-sm address" name="address" id="address" placeholder="Enter your address" required>
+
+
+					</div>
+
+
+					<div class="form-group">
+					    <label for="category">Please choose the category for the service(s)</label>
+					    <select name="category" class="form-control form-control-sm category" id="category" required>
+
+					    {% for service in services %}
+
+					      <option value="{{service.name}}">{{service.name}}</option>
+
+					    {% endfor %}
+
+					    </select>
+					  </div>
+
+					<div class="form-group">
+						<label for="description">Services description</label>
+						<textarea type="text" class="form-control form-control-sm description" name="description" id="description" placeholder="Add more details" required></textarea>
+						<small id="descriptionHelp" class="form-text text-muted">Please provide relevant details to the services you need.</small>
+					</div>
+
+<!-- 					<div class="form-group">
+					    <label for="file">Supporting document</label>
+					    <input type="file" class="form-control-file form-control-sm file" name="supporting_doc" id="supporting_doc" aria-describedby="fileHelp">
+					    <small id="fileHelp" class="form-text text-muted">If you wish to send supporting document, please upload it here. <br> (images, pdf, doc, docx, txt)</small>
+					 </div> -->
+
+					<div class="form-group">
+						<div class="modal-footer">
+					        <button type="submit" class="btn btn-primary modal-btn-submit">Submit</button>
+					    </div>
+					</div>
+
+
+					</form>
+		      </div>
+
+		      
+		    </div>
+		  </div>
+		</div>
+
+		<!-- END OF ORDER MODAL -->
+
+	<!-- END OF OUR PRICING -->
+
+	<!-- ABOUT US -->
+
+	<div class="section our-team" id="about">
+		<br>
+
+		<h3 class="wow fadeInDown sect-head team-head">Our Team</h3>
+
+		<br>
+		<p class="not wow fadeInUp" align="center">We are a SMALL team BUT with <i>EXCEPTIOANAL</i> Creative, Dedicated, and Collaborative minds. We always strive for improvement and aim to provide the best value to our customers. We are enthusiasts who love what we do.</p>
+
+		<br><br>
+
+		<div class="wow fadeInUp row team slick-item">
+
+		{% for member in staff %}
+			
+			<div class="col-md-4 slick-item">
+				<center>
+					<img class="rounded-circle" src="{{member.image.url}}" height="100" width="100" alt="">
+					<br><br>
+					<h6 align="center">{{member.name}}</h6>
+					<h7 align="center">{{member.post}}</h7>
+				</center>
+				<div class="dropdown-divider custom-divider"></div>
+				<br>
+
+				<p align="center">{{member.statement |safe}}</p>
+			</div>
+
+		{% endfor %}
+
+
+
+			
+
+			
+		</div>
+
+		<br><br>
+		
+	</div>
+
+	<!-- END OF ABOUT -->
+
+	<div class="contact section" id="contact">
+		<br>
+
+		<center>
+			<h3 class="wow fadeInUp sect-head">Contact us</h3>
+		</center>
+		<br><br>
+
+
+		<div class="row marg-20">
+
+		<!-- Left side -->
+
+			<div class="col-md-6 wow fadeInLeft">
+
+				<h6 class="white">We'd love to hear from you, your feedback is of value to us.</h6>
+					<br>
+					<div class="container">
+
+					  <form method="POST" id="form_message"> {% csrf_token %}
+					    <div class="form-group row">
+					      <div class="col-sm-10">
+					        <input type="text" class="form-control form-control-sm name msg name-msg" name="name" id="smFormGroupInput name" placeholder="Your Name" required>
+					      </div>
+					    </div>
+
+					    <div class="form-group row">
+					      <div class="col-sm-10">
+					        <input type="email" class="form-control form-control-sm email msg email-msg" name="email" id="smFormGroupInput email" placeholder="Email" required>
+					      </div>
+					    </div>
+
+					    <div class="form-group row">
+					      <div class="col-sm-10">
+					        <textarea class="form-control form-control-sm msg msg-message" name="message" id="smFormGroupInput message" placeholder="Message"></textarea>
+					      </div>
+					    </div>
+
+					    <button type="submit" class="btn btn-default msg-btn">Send message</button>
+					    <br>
+					    <br>
+
+					    
+
+					  </form>
+
+					  <div class="alert alert-success pull-left" role="alert">
+	                    <p>Thanks. Your message has been sent.</p>
+	                 </div>
+					  <br><br>
+					</div>
+
+				
+			</div>
+
+		<!-- End of Left side -->
+			<br>
+		<!-- lRight side -->
+
+			<div class="col-md-6 righter wow fadeInRight">
+
+
+				<h6 class="white">About Core Labs+ Ltd.</h6>
+				<br>
+
+				<div class="col-md-10 about-company">
+					<br>
+					<p align="center" class="white">
+					Core Labs+ Ltd. is a Rwandan tech company headquarterd in Kigali, Rwanda that designs, develops, and sells software, graphics, and online services. Our mission statement says "We sipmlify the delivery of services through the modern technologies, and we promote innovation".
+					<br>
+					We all say "<i>Our Passion is our customers' potential.</i>"</p>
+
+					<br>
+				</div>
+
+				<br><br>
+
+				<div class="pull-left">
+					<h6 class="white">Address: </h6>
+					<br>
+					<ul class="ad-list">
+						<li class="white">KK 561 St</li>
+						<li class="white">Kigali, Rwanda.</li>
+
+						<br>
+
+						<li class="white">Email: <a href="mailto:contact@corelabsplus.com" class="core-text white">contact@corelabsplus.com</a></li>
+						<li class="white">Tel: +250 789 501 923</li>
+
+						<br>
+
+						<li class="social"><a href="https://www.facebook.com/corelabsplus"><span><i class="fa fa-2x fa-facebook"></i></span></a></li>
+
+						<li class="social"><a href="https://www.instagram.com/corelabsplus"><span><i class="fa fa-2x fa-instagram"></i></span></a></li>
+
+						<li class="social"><a href="https://www.twitter.com/corelabsplus"><span><i class="fa fa-2x fa-twitter"></i></span></a></li>
+					</ul>
+
+					<br><br>
+
+					<div class="map wow fadeInUp">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d575.5511416434289!2d30.07887735872257!3d-1.9714672673358662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca66dec1d8c85%3A0x52720ddce7aa843c!2sKK+561+St%2C+Kigali!5e0!3m2!1sen!2srw!4v1498127870294" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+						
+					</div>
+
+					<br><br>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- END OF CONTACT -->
+
+	<!-- FOOTER -->
+
+	<div class="footer">
+		<h6 class="foot" align="center">&copy Core Labs+ Ltd 2017, All rights reserved.</h6>
+	</div>
+
+	<!-- END OF FOOTER -->
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+        var mixer = mixitup(".projects");
+    </script>
+
+    <script>
+
+
+    	$(window).scroll(function () {
+	    //     if(window.innerWidth >= 991)
+	    //     {
+	    //     	if ($(window).scrollTop() > 400) 
+		   //      {
+		   //          $(".navbar").css("height","160px");
+		   //          $(".navbar-nav").css("margin-top", "78px");
+		   //          $(".navbar-nav").css("line-height", "70px");
+					// $(".nav-link").css("height", "80px");
+		   //          $(".navbar").addClass("animated-nav");
+		   //          $(".brand-logo").css("height", "100px");
+		   //          $(".brand-logo").css("width", "149px");
+		   //          $(".p-link").css("height", "40px");
+		   //      } 
+
+		   //      else 
+		   //      {
+		   //          $(".navbar").css("height","80px");
+		   //          $(".navbar-nav").css("margin-top", "10px");
+		   //          $(".navbar-nav").css("line-height", "55px");
+		   //          $(".nav-link").css("height", "68px");
+		   //          $(".navbar").removeClass("animated-nav");
+		   //          $(".brand-logo").css("height", "60px");
+		   //          $(".brand-logo").css("width", "90px");
+		   //          $(".p-link").css("height", "40px");
+		   //      }
+	    //     }
+	    });
+
+    	// This is to control the navigation menu for collapsing
+
+		$(document).ready(function () {
+		    $(document).click(function () {
+		        if ($(".navbar-collapse").hasClass("show") === true) 
+		        {
+		            $("button.navbar-toggler").click();
+		        }
+		    });
+		});
+ 
+
+    	var sections = $('.section'),
+		    nav = $('nav'),
+		    nav_height = nav.outerHeight();
+		 
+		$(window).on('scroll', function () {
+		  var cur_pos = $(this).scrollTop();
+		 
+		  sections.each(function() {
+		    var top = $(this).offset().top - nav_height,
+		        bottom = top + $(this).outerHeight();
+		 
+		    if (cur_pos >= top && cur_pos <= bottom) {
+		      nav.find('a').removeClass('active');
+		      sections.removeClass('active');
+		 
+		      $(this).addClass('active');
+		      nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
+		    }
+		  });
+		});
+    </script>
+
+{% endblock %}
+	
+
+	

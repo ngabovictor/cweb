@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>Core Labs+| cPanel Mailbox</title>
+{% endblock %}
+
+{% block body %}
+
+<!-- HEADING -->
+
+<div class="header">
+	<h6 class="white pull-left heading">Core Labs+ cPanel</h6>
+</div>
+
+<!-- END OF HEADING -->
+<div class="container">
+	<br><br>
+	<center><h6 class="core-text">INBOX, ({{unread_counter}}) Unread <span class="pull-left"><a href="" class="core-text back-btn">Back</a></span> </h6></center>
+	<br><br>
+
+	<table class="table table-hover" id="table">
+	<thead class="core-text">
+		<tr>
+			<th>Name</th>
+			<th>email</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+
+	{% for message in inbox %}
+
+	<tbody>
+		<tr>
+			<td><a href="message/0{{ message.id }}" class="t-item">{% if message.classifications == 'Unread' %}<span>*</span>{% endif %} {{message.name}}</a></td>
+			<td><a href="message/0{{ message.id }}" class="t-item">{{message.email}}</a></td>
+			<td><a href="message/0{{ message.id }}" class="t-item">{{message.date}}</a></td>
+		</tr>
+	</tbody>
+
+	{% endfor %}
+</table>
+
+</div>
+	
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base2.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>Core Labs+| cPanel</title>
+{% endblock %}
+
+{% block body %}
+
+<!-- HEADING -->
+
+<body class="body">
+	<div class="header">
+		<h6 class="white pull-left heading">Core Labs+ cPanel</h6>
+	</div>
+
+	<!-- END OF HEADING -->
+	<div class="container">
+		<br><br>
+		<div class="row body">
+			<div class="col-md-12">
+				<center><button class="btn btn-danger btn-control"><a class="btn-link" href="mailbox">MESSAGES</a></button></center>
+			</div>
+
+			<br><br>
+
+			<div class="col-md-12">
+				<center><button class="btn btn-danger btn-control"><a href="orders" class="btn-link">REQUESTS</a></button></center>
+			</div>
+		</div>
+	</div>
+	
+
+{% endblock %}
