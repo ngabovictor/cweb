@@ -175,9 +175,14 @@ S3_USE_SIGV4 = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 if not DEBUG:
-   AWS_STORAGE_BUCKET_NAME = os.environ['cneweb']
-   AWS_ACCESS_KEY_ID = os.environ['AKIAIREUGRU2A57Q5UAA']
-   AWS_SECRET_ACCESS_KEY = os.environ['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']
-   STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-   S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+   AWS_STORAGE_BUCKET_NAME = 'corewebapp'
+   AWS_ACCESS_KEY_ID = 'AKIAJT2MOLQOQG42XBMQ'
+   AWS_SECRET_ACCESS_KEY = '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'
+   AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+   AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+    }
+   # STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+   AWS_LOCATION = 'static'
+   S3_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
    STATIC_URL = S3_URL
