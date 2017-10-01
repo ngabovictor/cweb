@@ -173,8 +173,8 @@ MEDIA_URL = '/media/'
 
 S3_USE_SIGV4 = True
 #Storage on S3 settings are stored as os.environs to keep settings.py clean 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'coreweb/static'),]
 if not DEBUG:
    AWS_STORAGE_BUCKET_NAME = 'corewebapp'
