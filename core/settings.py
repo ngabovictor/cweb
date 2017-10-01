@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import dj_database_url
+import boto3
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -182,6 +183,10 @@ if not DEBUG:
    AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
     }
+
+    STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'coreweb/static'),
+    ]
    # STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
    AWS_LOCATION = 'static'
    S3_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
