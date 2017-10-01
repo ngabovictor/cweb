@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import dj_database_url
-from storages.backends.s3boto3 import S3Boto3Storage
+#from storages.backends.s3boto3 import S3Boto3Storage
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -173,11 +173,12 @@ MEDIA_URL = '/media/'
 
 S3_USE_SIGV4 = True
 #Storage on S3 settings are stored as os.environs to keep settings.py clean 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'coreweb/static'),]
 if not DEBUG:
    AWS_STORAGE_BUCKET_NAME = 'corewebapp'
+   S3_REGION_NAME = 'US East (N. Virginia)'
    AWS_ACCESS_KEY_ID = 'AKIAJT2MOLQOQG42XBMQ'
    AWS_SECRET_ACCESS_KEY = '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'
    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME

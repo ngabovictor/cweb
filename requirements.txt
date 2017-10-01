@@ -30,5 +30,7 @@ six==1.10.0
 slacker==0.9.50
 twilio==6.4.3
 urllib3==1.21.1
+django-storages-redux
+boto3
 
 
