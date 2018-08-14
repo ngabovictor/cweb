@@ -2,7 +2,7 @@
 
 .not
 {
-	width: 80%;
+	/*width: 80%;*/
 	margin: 0px auto;
 }
 
@@ -82,7 +82,7 @@ p
 
 .navbar
 {
-	width: 80%;
+	/*width: 80%;*/
 	margin: 0px auto;
 	height: 80px;
 	background-color: white;
@@ -154,7 +154,7 @@ p
 
 .pos
 {
-	width: 75%;
+	/*width: 75%;*/
 	margin: -24px auto 0px auto;
 	background-color: white;
 }
@@ -208,7 +208,7 @@ p
 
 .portfolio
 {
-	width: 75%;
+	/*width: 75%;*/
 	margin: 0px auto 0px auto;
 	background-color: #263238;
 }
@@ -317,7 +317,7 @@ figcaption.mask span {
 .pricing
 {
 	background-color: #37474f;
-	width: 75%;
+	/*width: 75%;*/
 	margin: 0px auto;
 }
 
@@ -516,7 +516,7 @@ figcaption.mask span {
 .our-team
 {
 	background-color: white;
-	width: 75%;
+	/*width: 75%;*/
 	margin: 0px auto;
 }
 
@@ -577,7 +577,7 @@ figcaption.mask span {
 
 .contact
 {
-	width: 75%;
+	/*width: 75%;*/
 	background-color: #263238;
 	margin: 0px auto;
 }
@@ -663,7 +663,7 @@ iframe, object, embed {
 {
 	background-color: black;
 	height: 48px;
-	width: 75%;
+	/*width: 75%;*/
 	margin: 0 auto;
 
 }
