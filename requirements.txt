@@ -14,7 +14,7 @@ django-toolbelt==0.0.1
 djangorestframework==3.6.2
 file-magic==0.3.0
 gunicorn==19.7.1
-html5lib==0.999
+html5lib==0.999999999
 whitenoise==3.2
 virtualenv==15.1.0
 ipaddress==1.0.18
